@@ -629,10 +629,9 @@ function notesImport(list){
   }});
 }
 function notesFmtTs(t){ const d=new Date(t); const now=new Date();
-  const sameDay=d.toDateString()===now.toDateString();
-  if(sameDay) return "今天 "+d.getHours().toString().padStart(2,"0")+":"+d.getMinutes().toString().padStart(2,"0");
   const y=d.getFullYear(),mo=d.getMonth()+1,day=d.getDate();
-  return (y===now.getFullYear()?"":y+"年")+mo+"月"+day+"日"; }
+  const hm=d.getHours().toString().padStart(2,"0")+":"+d.getMinutes().toString().padStart(2,"0");
+  return (y===now.getFullYear()?"":y+"年")+mo+"月"+day+"日 "+hm; }
 function renderNotes(){
   const box=document.getElementById("noteList");
   if(!notes.length){ box.innerHTML='<div class="empty">还没有笔记，点右下角「＋ 新笔记」</div>'; return; }
