@@ -376,7 +376,7 @@ function drawList(ms){
     day.forEach(e=>{ if(e.type==="exp")sum+=e.amt; else sum-=e.amt; });
     const dt=new Date(d+"T00:00:00");
     const isToday=d===new Date().toISOString().slice(0,10);
-    let dl=isToday?"今天":(d.startsWith(new Date().toISOString().slice(0,7))?(dt.getDate()+"日"):dt.getMonth()+1+"月"+dt.getDate()+"日");
+    let dl=isToday?("今天 "+(dt.getMonth()+1)+"月"+dt.getDate()+"日"):(d.startsWith(new Date().toISOString().slice(0,7))?(dt.getDate()+"日"):dt.getMonth()+1+"月"+dt.getDate()+"日");
     html+=`<div class="dayhead"><span>${dl}</span><b>${fmtMoney(sum)}</b></div>`;
     day.forEach(e=>{
       const nm=e.note?esc(e.note):catName(e.cat);
